@@ -66,10 +66,3 @@ The raw dataset contains **102,599 records** across **26 columns**:
 * **Q5. Review Trends Over Time:** Tracked customer activity over time by grouping review timestamps on a monthly basis.
 
 ---
-
-## 🛠 Installation & Setup
-
-1. **Clone the Repository:**
-   ```bash
-   git clone [https://github.com/munnabhardwaj680-abc/Airbnb_Project.git](https://github.com/munnabhardwaj680-abc/Airbnb_Project.git)
-   cd Airbnb_Project
