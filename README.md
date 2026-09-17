@@ -1,30 +1,75 @@
-# Airbnb Data Analysis & Price Optimization Project
+# 🏡 Airbnb Data Analysis & Visualization Project
 
-![Airbnb Project Banner](https://raw.githubusercontent.com/airbnb/aerosolve/master/docs/svg/aerosolve_header.svg)
-
-This repository contains a comprehensive data analysis and machine learning project focused on short-term rental listings (Airbnb). The primary objective is to clean raw listing data, conduct exploratory data analysis (EDA) to uncover market trends, and build predictive pricing models to guide property hosts and real estate investors.
+An end-to-end Exploratory Data Analysis (EDA) of Airbnb listings dataset using Python, Pandas, Seaborn, and Matplotlib. This project performs data cleaning, handles missing values and data type conversions, removes duplicate entries, and identifies key insights across listing prices, room types, and geographical locations.
 
 ---
 
-## Executive Summary & Key Findings
-
-Our evaluation of the rental listing dataset revealed several key drivers impacting pricing, guest satisfaction, and host performance:
-
-### Price Determinants
-* **Room Type & Accommodation Capacity:** Entire homes and apartments command a significant price premium over private or shared rooms. Capacity (`accommodates`, `bedrooms`, `bathrooms`) is the strongest linear predictor of price.
-* **Geographic Location:** Clustering analysis indicates pricing varies drastically across neighborhoods and proximity to central points of interest or transit hubs.
-* **Property Amenities:** Key luxury amenities (e.g., hot tubs, pools, free parking, self check-in) positively correlate with higher daily rates.
-
-### Host Metrics & Reviews
-* **Superhost Status:** Superhosts consistently maintain higher review scores (`review_scores_rating`, `review_scores_cleanliness`), slightly higher occupancy rates, and can price properties modestly above market average without sacrificing booking frequency.
-* **Review Volume vs. Price:** High-frequency listings tend to be priced competitively within their region, whereas premium luxury listings see fewer total reviews per year.
+## 📌 Table of Contents
+- [Project Overview](#-project-overview)
+- [Dataset Features](#-dataset-features)
+- [Key Data Cleaning Steps](#-key-data-cleaning-steps)
+- [Exploratory Data Analysis (EDA) & Insights](#-exploratory-data-analysis-eda--insights)
+- [Installation & Setup](#-installation--setup)
+- [Project Structure](#-project-structure)
+- [Future Improvements](#-future-improvements)
 
 ---
 
-## Repository Structure
+## 🔍 Project Overview
 
-```text
-├── Airbnb.ipynb / Airbnb.html  # Primary notebook containing raw code, outputs, & visualizations
-├── data/                       # Dataset directory (raw and processed CSV files)
-├── models/                     # Saved predictive models and scalers
-└── README.md                   # Project documentation and summary of findings
+The primary goal of this project is to clean, analyze, and visualize Airbnb listing data to understand pricing distributions, geographical room availability, and customer behavior patterns over time.
+
+**Key Objectives:**
+- Clean raw tabular data (handle mixed data types, missing records, currency symbols).
+- Analyze listing price distributions across different accommodation types.
+- Evaluate the concentration of listings across major neighborhood groups.
+- Visualize review trends over time.
+
+---
+
+## 📊 Dataset Features
+
+The raw dataset contains **102,599 records** across **26 columns**:
+
+| Column Name | Description | Data Type |
+| :--- | :--- | :--- |
+| `id` / `host id` | Unique identifiers for listings and hosts | Integer |
+| `NAME` / `host name` | Name of the listing and host | Object (String) |
+| `neighbourhood group` | Broad geographic region (e.g., Brooklyn, Manhattan) | Object (String) |
+| `neighbourhood` | Specific local neighborhood | Object (String) |
+| `room type` | Entire home/apt, Private room, Shared room, Hotel room | Object (String) |
+| `price` | Nightly rate in USD | Float (Cleaned) |
+| `service fee` | Additional Airbnb service charge | Float (Cleaned) |
+| `minimum nights` | Minimum length of stay required | Float |
+| `number of reviews` | Total reviews received | Float |
+| `last review` | Date of the most recent review | Datetime |
+| `availability 365` | Days available per year | Float |
+
+---
+
+## 🧹 Key Data Cleaning Steps
+
+1. **Date Standardisation:** Converted `last review` to `datetime` objects and imputed missing dates using baseline values.
+2. **Handling Missing Values:** Dropped unidentifiable rows where `NAME` or `host name` were missing, and removed non-essential high-null columns (`license`, `house_rules`).
+3. **Currency Conversion:** Removed `$` currency signs and commas from `price` and `service fee` columns, converting them to numerical floats.
+4. **Deduplication:** Dropped duplicate records, reducing the dataset size to **101,410 clean records**.
+
+---
+
+## 📈 Exploratory Data Analysis (EDA) & Insights
+
+### Key Visualizations & Questions Explored:
+* **Q1. Price Distribution:** Analyzed overall price distributions using histograms and KDE plots. Listings exhibit a fairly uniform distribution ranging from $50 to $1,200 per night.
+* **Q2. Room Type Distribution:** Entire homes/apartments (~53k) and Private rooms (~46k) dominate the market, making up over 97% of total inventory.
+* **Q3. Neighborhood Group Volume:** **Manhattan** and **Brooklyn** represent over 83% of all Airbnb listings in the dataset.
+* **Q4. Price vs. Room Type:** Analyzed price distributions across room types using box plots.
+* **Q5. Review Trends Over Time:** Tracked customer activity over time by grouping review timestamps on a monthly basis.
+
+---
+
+## 🛠 Installation & Setup
+
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/munnabhardwaj680-abc/Airbnb_Project.git](https://github.com/munnabhardwaj680-abc/Airbnb_Project.git)
+   cd Airbnb_Project
