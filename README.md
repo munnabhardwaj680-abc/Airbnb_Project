@@ -1,7 +1,7 @@
 # 🏡 Airbnb Data Analysis & Visualization Project
 
 An end-to-end Exploratory Data Analysis (EDA) of Airbnb listings dataset using Python, Pandas, Seaborn, and Matplotlib. This project performs data cleaning, handles missing values and data type conversions, removes duplicate entries, and identifies key insights across listing prices, room types, and geographical locations.
-seattle.jpg
+[https://github.com/munnabhardwaj680-abc/Airbnb_Project/blob/main/seattle.jpg]
 
 ---
 
